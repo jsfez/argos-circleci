@@ -1,27 +1,21 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
+  heroku: circleci/heroku@1.2.6
 
 jobs:
-  upload_screenshots:
+  build_and_test:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: npm
-
-      # -----
-      # Insert here your steps required to take screenshots of
-      # your components or of your application.
-      #
-      # Find integrations on https://argos-ci.com/docs
-      # -----
+          pkg-manager: yarn
 
       - run:
           name: Upload screenshots to argos-ci.com
-          command: npm exec argos upload ./screenshots
+          command: yarn run argos upload ./screenshots
 
 workflows:
-  ci:
+  test_my_app:
     jobs:
-      - upload_screenshots
+      - build_and_test
