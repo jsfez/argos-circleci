@@ -17,3 +17,4 @@ This example showcases Argos Visual Testing running on [CircleCI](https://circle
 
 - [Official Argos Docs](https://argos-ci.com/docs)
 - [Discord](https://argos-ci.com/discord)
+# argos-circleci
